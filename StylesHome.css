@@ -1,0 +1,674 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.navbar{
+    background: #A8370D;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0px 7px 4px rgba(0, 0, 0, 0.35);
+}
+
+.navbar__container{
+    display: flex;
+    justify-content: space-between;
+    height: 35px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 22px;
+}
+
+#navbar__logo{
+    -webkit-text-fill-color: #FFFACD;
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    font-family: "Oleo Script Swash Caps", system-ui;
+    font-weight: 300;
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.navbar__menu{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+
+.navbar__item{
+    height: 35px;
+}
+
+.navbar__links{
+    color:#FFFACD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+    position: relative;  
+    transition: background-color 0.3s ease;
+}
+
+.navbar__links:hover, 
+.navbar__links:active {
+    background-color: teal;    
+    color: #FFFACD;  
+}
+
+@media screen and (max-width: 960px){
+    .navbar__container{
+        display: flex;
+        justify-content: space-between;
+        height: 40px;
+        z-index: 1;
+        width: 100%;
+        max-width: 1300px;
+        padding: 0;
+    }
+
+    .navbar__menu{
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        top: -1000px;
+        opacity: 0;
+        transition: all 0.5s ease;
+        height: 40vh;
+        z-index: -1;
+    }
+
+    .navbar__menu.active{
+        background: #262626;
+        top: 100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 99;
+        height: 40vh;
+        font-size: 1.1rem;
+    }
+
+    #navbar__logo{
+        padding-left: 20px;
+    }
+
+    .navbar__toggle .bar{
+        width: 20px;
+        height: 3px;
+        margin: 4px auto;
+        transition: all 0.3s ease-in-out;
+        background:#FFFACD;
+    }
+
+    .navbar__item{
+        width: 100%;
+        height: 100%;
+        font-size: 15px;
+    }
+
+    .navbar__links{
+        text-align: center;
+        padding: 12px;
+        width: 100%;
+        display: table;
+    }
+
+    #mobile-menu{
+        position: absolute;
+        top: 8%;
+        right: 5%;
+        transform: translate(5%, 8%);
+    }
+
+    .navbar__toggle .bar{
+        display: block;
+        cursor: pointer;
+    }
+
+    #mobile-menu.is-active .bar:nth-child(2){
+        opacity: 0;
+    }
+
+    #mobile-menu.is-active .bar:nth-child(1){
+        transform: translateY(7.1px) rotate(45deg);
+    }
+    #mobile-menu.is-active .bar:nth-child(3){
+        transform: translateY(-7.1px) rotate(-45deg);
+    }
+}
+
+/* Hero Section */
+
+.hero-section {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 90vh; /* Adjust height as needed */
+    overflow: hidden;
+    z-index: 0; /* Ensure it's behind the favorite section */
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Dark overlay with 100% opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 1;
+}
+
+.hero-overlay h1 {
+    color: #FFFACD; /* Light color for text */
+    font-size: 1.9rem; /* Adjust font size as needed */
+    padding: 20px;
+    line-height: 1.5;
+    z-index: 2;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-overlay .brand-logo {
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 4rem; /* Adjust font size as needed */
+}
+
+.main__btn{ 
+    font-size: 1.3rem;
+    background-color: transparent;
+    padding: 14px 32px;
+    border: #FFFACD solid 3px;
+    border-radius: 10px;
+    color: #FFFACD;
+    margin-top: 1rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.35s;
+    z-index: 3; /* Ensure it's above the overlay */
+}
+
+.main__btn a{
+    position: relative;
+    z-index: 4; /* Ensure the text is above the button */
+    color: #FFFACD;
+    text-decoration: none;
+}
+
+.main__btn:hover,
+.main__btn:active {
+    background-color: #A8370D; /* Background color on hover */
+    border-color: transparent;
+    color: #FFFACD; /* Text color on hover */
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        height: 60vh; /* Adjust height for mobile */
+        z-index: 1;
+    }
+    
+    .hero-image {
+        height: auto;
+        min-height: 60vh; /* Ensure it covers the section */
+        object-fit: cover;
+        z-index: 0;
+    }
+
+    .hero-overlay h1 {
+        font-size: 1rem; /* Adjust font size for mobile */
+        padding: 10px;
+        z-index: 1;
+    }
+    
+    .hero-overlay .brand-logo {
+        font-size: 1.7rem; /* Adjust font size for mobile */
+        z-index: 1;
+    }
+    
+    .main__btn {
+        font-size: 0.8rem;
+        padding: 8px 20px;
+        border: solid 2px;
+        margin-top: 1rem;
+        z-index: ;
+    }
+}
+
+/* Favourite */
+
+.favorites-section {
+    position: relative;
+    padding: 70px;
+    z-index: 2;
+    background-color: #FFFACD;
+}
+
+.favorites-section h2 {
+    text-align: center;
+    font-family: "Luckiest Guy", cursive;
+    margin-bottom: 30px;
+    font-size: 3rem;
+    color: #262626;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    justify-items: center;
+}
+
+/* Individual product card */
+.product-card {
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 250px; 
+    min-width: 80px;
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.3s;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.product-card h3 {
+    font-size: 1.2rem;
+    font-family: "Luckiest Guy", cursive;
+    align-items: left;
+    color: #333;
+    margin: 10px 0;
+}
+
+.product-card p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.product-card .price {
+    font-size: 1.1rem;
+    color: #A8370D;
+    font-weight: bold;
+}
+
+.product-card:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    background-color: #fff;
+}
+
+.product-card:hover img{
+    transform: rotate(10deg);
+}
+
+@media (max-width: 768px){
+    .favorites-section {
+        padding: 30px;
+        z-index: 2;
+        background-color: #FFFACD;
+    }
+    .favorites-section h2 {
+        margin-bottom: 15px;
+        font-size: 2rem;
+    }
+    .product-container {
+        gap: 20px; 
+    }
+    .product-card p {
+        color: #666;
+        margin-bottom: 10px;
+    }
+}
+
+/* Best Recipes Section */
+.recipes-section {
+    position: relative;
+    padding: 70px;
+    z-index: 2;
+    background-color: #A8370D;
+}
+
+.heading-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.recipes-section p {
+    color: #FFFACD;
+    font-family: "Jockey One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.8rem;
+    text-align: left;
+}
+
+.recipes-section h2 {
+    text-align: left;
+    font-family: "Luckiest Guy", cursive;
+    margin-bottom: 30px;
+    font-size: 4rem;
+    color: #FFFACD;
+}
+
+.line {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #FFFACD;
+    margin: 0 10px;
+}
+
+.view-more-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-family: "Jockey One", sans-serif;
+    background-color: #FFFACD;
+    color: #A8370D;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.view-more-button:hover {
+    background-color: #FFE4B5;
+}
+
+.recipe-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 15px; 
+}
+
+.recipe-card {
+    background-color: transparent;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 200px; 
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.recipe-card img {
+    width: 100%;
+    transform: rotate(10deg);
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.recipe-card:nth-child(1) img,
+.recipe-card:nth-child(3) img{
+    transform: rotate(-10deg);
+}
+
+.recipe-card h3 {
+    font-size: 1.2rem;
+    color: #FFFACD;
+    margin: 10px 0;
+}
+
+.recipe-card p {
+    color: #FFFACD;
+    font-size: 15px;
+    font-family: "Overpass", sans-serif;
+    font-style: normal;
+    margin-bottom: 15px;
+    text-align: center; /* Center-align the text */
+}
+
+.recipe-card:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.recipe-card:hover img {
+    transform: rotate(0deg); 
+}
+
+.recipe-card:nth-child(1) {
+    position: relative;
+    top: 60px;
+}
+
+.recipe-card:nth-child(3) {
+    position:relative;
+    top: 60px;
+}
+
+@media (max-width: 768px) {
+    .heading-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .recipes-section p {
+        font-size: 1rem;
+    }
+    
+    .recipes-section h2 {
+        text-align: left;
+        font-family: "Luckiest Guy", cursive;
+        margin-bottom: 20px;
+        font-size: 2rem;
+    }
+
+    .line {
+        display: none; /* Hide the line on small screens */
+    }
+
+    .view-more-button {
+        margin-top: 10px;
+        align-self: flex-start; /* Align button to the left */
+    }
+
+    .recipe-card h3 {
+        font-size: 1.2rem;
+        color: #FFFACD;
+        margin: 10px 0;
+    }
+    
+    .recipe-card p {
+        color: #FFFACD;
+        font-size: 14px;
+        font-family: "Overpass", sans-serif;
+        font-style: normal;
+        margin-bottom: 10px;
+        text-align: center; /* Center-align the text */
+    }
+
+    .recipe-card:nth-child(1),
+    .recipe-card:nth-child(3) {
+        position: relative;
+        top: 0px;
+    }
+
+    .recipe-card:nth-child(1) img,
+    .recipe-card:nth-child(2) img,
+    .recipe-card:nth-child(3) img,
+    .recipe-card:nth-child(4) img{
+        transform: rotate(0deg);
+    }
+}
+
+/* Footer Section */
+
+.footer-section {
+    position: relative; /* Add position relative */
+    z-index: 10; /* Set a high z-index to bring it to the front */
+    background-color: #262626;
+    color: #FFFACD;
+    padding: 40px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.footer-brand h2 {
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 2rem;
+    margin: 0 0 20px 0;
+}
+
+.footer-brand p {
+    font-family: "Jockey One", sans-serif;
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.footer-social {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Adjust gap between "Follow us on" and social icons */
+}
+
+.social-icons {
+    display: flex;
+    align-items: left;
+    gap: 10px; /* Adjust gap between each social icon */
+}
+
+.social-icons a {
+    padding: 1px;
+}
+
+.social-icons img {
+    width: auto;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+.footer-links h3, .footer-contact h3 {
+    border-radius: 10px;
+    font-family: "Jockey One", sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #FFFACD;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #FFFACD;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: blue; /* Optional: Change color on hover for better UX */
+}
+
+.footer-contact p {
+    margin: 0 0 10px 0;
+}
+
+.footer-contact a {
+    color: #FFFACD;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    color: blue; /* Optional: Change color on hover for better UX */
+}
+
+@media(max-width: 768px){
+    .footer-container{
+        gap:10px
+    }
+    .footer-brand p {
+        font-size: 1rem;
+    }
+
+    .social-icons img {
+        width: auto;
+        height: 25px;
+        transition: transform 0.3s;
+    }
+
+    .footer-links h3{
+        font-size: 1.3rem;
+    }
+
+    .footer-contact h3 {
+        align-self: flex-start;
+        border-radius: 10px;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        color: #FFFACD;
+        align-items: left;
+    }
+    
+    .footer-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .footer-links a {
+        color: #FFFACD;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    .footer-contact p, a {
+        font-size: 0.8rem;
+    }
+}
