@@ -34,6 +34,7 @@
     background-size: 100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
+    background-clip: text; 
     font-family: "Oleo Script Swash Caps", system-ui;
     font-weight: 300;
     font-style: normal;
@@ -357,7 +358,7 @@
 
 .Mission-content p {
     font-size: 1.1rem; 
-    color: #FFFACD6; 
+    color: #333; /* sebelumnya #FFFACD6 */
     padding-left: 40px;
     margin-bottom: 150px; 
 }
