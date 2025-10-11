@@ -1,0 +1,548 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.navbar{
+    background: #A8370D;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0px 7px 4px rgba(0, 0, 0, 0.35);
+}
+
+.navbar__container{
+    display: flex;
+    justify-content: space-between;
+    height: 35px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 22px;
+}
+
+#navbar__logo{
+    -webkit-text-fill-color: #FFFACD;
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    font-family: "Oleo Script Swash Caps", system-ui;
+    font-weight: 300;
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.navbar__menu{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+
+.navbar__item{
+    height: 35px;
+}
+
+.navbar__links{
+    color:#FFFACD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+    position: relative;  
+    transition: background-color 0.3s ease;
+}
+
+.navbar__links:hover, 
+.navbar__links:active {
+    background-color: teal;    
+    color: #FFFACD;  
+}
+
+@media screen and (max-width: 960px){
+    .navbar__container{
+        display: flex;
+        justify-content: space-between;
+        height: 40px;
+        z-index: 1;
+        width: 100%;
+        max-width: 1300px;
+        padding: 0;
+    }
+
+    .navbar__menu{
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        top: -1000px;
+        opacity: 0;
+        transition: all 0.5s ease;
+        height: 40vh;
+        z-index: -1;
+    }
+
+    .navbar__menu.active{
+        background: #262626;
+        top: 100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 99;
+        height: 40vh;
+        font-size: 1.1rem;
+    }
+
+    #navbar__logo{
+        padding-left: 20px;
+    }
+
+    .navbar__toggle .bar{
+        width: 20px;
+        height: 3px;
+        margin: 4px auto;
+        transition: all 0.3s ease-in-out;
+        background:#FFFACD;
+    }
+
+    .navbar__item{
+        width: 100%;
+        height: 100%;
+        font-size: 15px;
+    }
+
+    .navbar__links{
+        text-align: center;
+        padding: 12px;
+        width: 100%;
+        display: table;
+    }
+
+    #mobile-menu{
+        position: absolute;
+        top: 8%;
+        right: 5%;
+        transform: translate(5%, 8%);
+    }
+
+    .navbar__toggle .bar{
+        display: block;
+        cursor: pointer;
+    }
+
+    #mobile-menu.is-active .bar:nth-child(2){
+        opacity: 0;
+    }
+
+    #mobile-menu.is-active .bar:nth-child(1){
+        transform: translateY(7.1px) rotate(45deg);
+    }
+    #mobile-menu.is-active .bar:nth-child(3){
+        transform: translateY(-7.1px) rotate(-45deg);
+    }
+}
+
+/* Banner Section */
+
+.Banner-section {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 70vh; 
+    overflow: hidden;
+    z-index: 0; 
+}
+
+.Banner-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.Banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 4;
+}
+
+.Banner-overlay h1 {
+    color: #FFFACD; 
+    font-size: 1.9rem; 
+    padding: 20px;
+    line-height: 1.2;
+    z-index: 3;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.Banner-overlay p {
+    color: #FFFACD; 
+    font-size: 1.2rem; 
+    padding: 20px;
+    line-height: 10px;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+    z-index: 3;
+}
+
+.Banner-overlay .brand-logo {
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 4rem; 
+}
+
+@media (max-width: 768px) {
+    .Banner-section {
+        height: 60vh; 
+        z-index: 1;
+    }
+    
+    .Banner-image {
+        height: auto;
+        min-height: 60vh; 
+        object-fit: cover;
+        z-index: 0;
+    }
+
+    .Banner-overlay h1 {
+        font-size: 1.3rem;
+        padding: 20px;
+        z-index: 1;
+    }
+
+    .Banner-overlay p {
+        font-size: 1rem;
+        line-height: 1;
+        padding: 20px;
+    }
+    
+    .Banner-overlay .brand-logo {
+        font-size: 2.7rem;
+        z-index: 1;
+    }
+}
+
+/* History Section */
+.History {
+    background-color: #262626;
+    display: flex;
+    align-items: flex-start; 
+    padding: 20px 10px 20px 60px;
+}
+
+.History-description {
+    flex: 1;
+    color: #FFFACD;
+}
+
+.History-description h3 {
+    font-size: 1.6rem;
+    font-family: "calibri";
+    margin-bottom: 5px; 
+}
+
+.History-description h2 {
+    font-size: 3rem; 
+    font-family: "Luckiest Guy", cursive;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 35px; 
+}
+
+.History-description p {
+    font-size: 1rem; 
+    max-width: 80%; 
+    margin-bottom: 20px; 
+}
+
+.picture {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start; 
+    flex: 1;
+}
+
+.picture img {
+    width: 60%;
+    margin-right: 60px;
+    border-radius: 10px; 
+}
+
+@media (max-width: 768px) {
+    .History {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 40px; 
+    }
+    
+    .History-description {
+        width: 100%;
+        margin-bottom: 20px; 
+    }
+    
+    .History-description h3 {
+        font-size: 1rem;
+        font-family: "calibri";
+        margin-bottom: 10px; 
+    }
+    
+    .History-description h2 {
+        font-size: 2.3rem; 
+    }
+    
+    .History-description p {
+        font-size: 0.9rem; 
+        max-width: 100%; 
+    }
+    
+    .picture {
+        align-items: center;
+        width: 100%;
+        margin-bottom: 20px; 
+    }
+    
+    .picture img {
+        width: 80%;
+        margin-right: 0; 
+    }
+}
+
+.Mission {
+    background-color: #FFFACD; 
+    display: flex;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.Mission-content {
+    flex: 1;
+    padding-right: 20px; 
+    text-align: left; 
+}
+
+.Mission-content h2 {
+    font-size: 3rem; 
+    color: #333;
+    margin-bottom: 20px; 
+    font-family: "Luckiest Guy", cursive; 
+}
+
+.Mission-content p {
+    font-size: 1.1rem; 
+    color: #FFFACD6; 
+    padding-left: 40px;
+    margin-bottom: 150px; 
+}
+
+.Mission-image {
+    flex: 1;
+    display: flex;
+    justify-content: center; 
+}
+
+.Mission-image img {
+    width: 100%; 
+    max-width: 500px; 
+    border-radius: 10px; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+
+}
+
+@media (max-width: 768px) {
+    .Mission {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px; 
+    }
+    
+    .Mission-content {
+        padding-right: 0;
+        padding-bottom: 20px; 
+        text-align: center;
+    }
+    
+    .Mission-content h2 {
+        font-size: 2.3rem; 
+    }
+    
+    .Mission-content p {
+        font-size: 1rem; 
+        margin-bottom: 0px; 
+    }
+    
+    .Mission-image img {
+        width: 80%; 
+    }
+}
+
+/* Footer Section */
+
+.footer-section {
+    position: relative; 
+    z-index: 10; 
+    background-color: #262626;
+    color: #FFFACD;
+    padding: 40px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.footer-brand h2 {
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 2rem;
+    margin: 0 0 20px 0;
+}
+
+.footer-brand p {
+    font-family: "Jockey One", sans-serif;
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.footer-social {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+}
+
+.social-icons {
+    display: flex;
+    align-items: left;
+    gap: 10px; 
+}
+
+.social-icons a {
+    padding: 1px;
+}
+
+.social-icons img {
+    width: auto;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+.footer-links h3, .footer-contact h3 {
+    border-radius: 10px;
+    font-family: "Jockey One", sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #FFFACD;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #FFFACD;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: blue; 
+}
+
+.footer-contact p {
+    margin: 0 0 10px 0;
+}
+
+.footer-contact a {
+    color: #FFFACD;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    color: blue; 
+}
+
+@media(max-width: 768px){
+    .footer-container{
+        gap:10px
+    }
+    .footer-brand p {
+        font-size: 1rem;
+    }
+
+    .social-icons img {
+        width: auto;
+        height: 25px;
+        transition: transform 0.3s;
+    }
+
+    .footer-links h3{
+        font-size: 1.3rem;
+    }
+
+    .footer-contact h3 {
+        align-self: flex-start;
+        border-radius: 10px;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        color: #FFFACD;
+        align-items: left;
+    }
+    
+    .footer-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .footer-links a {
+        color: #FFFACD;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    .footer-contact p, a {
+        font-size: 0.8rem;
+    }
+}
